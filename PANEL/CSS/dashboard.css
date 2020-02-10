@@ -15,10 +15,9 @@ body{
   color: white;
 }
 
-.lgi.active{
-  background-color: #222;
-  color: white;
-  border-color: #222;
+.lgi:focus{
+    color: #ffffff; 
+    background-color: #333;
 }
 
 .lgi{
@@ -53,6 +52,7 @@ div.frame{
 .content{
   text-align: center;
   min-height: 97vh;
+  max-height: 97vh;
 }
 
 .tools{
@@ -69,7 +69,13 @@ div.frame{
 .playlist{
   background-color: #242121;
   min-width: 100%;
-  min-height: 75%;
+  min-height: 65vh;
+  max-height: 65vh;
+  overflow-y: scroll;
+}
+
+.filetree{
+  background-color: #333;
 }
 
 ::-webkit-scrollbar {
@@ -86,8 +92,8 @@ input::-webkit-inner-spin-button {
   background-color: #221f1f;
   min-width: 100%;
   max-width: 100%;
-  min-height: 21%;
-  max-height: 21%;
+  min-height: 24vh;
+  max-height: 24vh;
   overflow-x: scroll;
 }
 

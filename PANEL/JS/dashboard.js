@@ -1,11 +1,20 @@
-const {remote, ipcRenderer} = require('electron');
+const {remote} = require('electron');
 const $ = require('jquery');
 
 function fullscreen(){
-    var window = remote.BrowserWindow.getFocusedWindow();
+    var window = remote.getCurrentWindow();
     window.maximize();
+    window.focus();
+    window.setMinimumSize(1600, 800);
     var audio = new Audio('../AUDIO/START/startup.wav');
     audio.play();
+}
+
+function mixerrack(){
+    for(i = 1; i <= 200; i++){
+        $("#mixerrack").append('<li class="list-group-item mixi bg-dark"><kbd>' + i + '</kbd></li>');
+        console.log(i);
+    }
 }
 
 document.getElementById('min').addEventListener('click', minWindow);
@@ -34,3 +43,26 @@ function exitWindow () {
 $(function () {
     $('[data-toggle="tooltip"]').tooltip()
   })
+
+
+
+  function searchF() {
+    // Declare variables
+    var input, filter, ul, li, a, i, txtValue;
+    input = document.getElementById('friendSearch');
+    filter = input.value.toUpperCase();
+    ul = document.getElementById("flist");
+    li = ul.getElementsByTagName('a');
+  
+    // Loop through all list items, and hide those who don't match the search query
+    for (i = 0; i < li.length; i++) {
+      a = li[i].getElementsByTagName("p")[0];
+      txtValue = a.textContent || a.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        li[i].style.display = "";
+      } else {
+        li[i].style.display = "none";
+      }
+    }
+  }
+  

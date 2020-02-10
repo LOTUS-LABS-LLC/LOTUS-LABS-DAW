@@ -14,7 +14,7 @@
 
     <title>Lotus</title>
   </head>
-  <body onload="fullscreen()">
+  <body onload="fullscreen(); mixerrack();">
 
     <!-- TOP BAR DO NOT DELETE-->
     <div class="container-fluid frame">
@@ -194,84 +194,69 @@
         </div>
         <div class="col-sm-1 files p-0">
           <h5 class="p-2 m-0" style="background-color: #2b2828;">FILES</h5>
+
+
+          <ul class="list-group">
+            <li class="list-group-item d-flex justify-content-between align-items-center filetree">
+              <p class="mt-auto mb-auto">VST</p>
+              <span class="badge badge-primary badge-pill">14</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center filetree">
+              <p class="mt-auto mb-auto">Samples 1</p>
+              <span class="badge badge-primary badge-pill">2</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center filetree">
+              <p class="mt-auto mb-auto">Samples 2</p>
+              <span class="badge badge-primary badge-pill">1</span>
+            </li>
+          </ul>
+
+
+
         </div>
-        <div class="col-sm m-0 p-0">
+        <div class="col-sm m-0 p-0" style="max-height: 10%;">
+          <h5 class="m-auto p-0" style="background-color: #242121;"><img src="../IMG/lotusTPWhite.png" width="50px"></h5 class="m-auto">
           <div class="container-fluid playlist p-0">
 
 
-            <h5 class="m-auto p-0" style="background-color: #242121;"><img src="../IMG/lotusTPWhite.png" width="50px"></h5 class="m-auto">
 
 
             <div class="row m-0 p-0">
-              <div class="col-sm-2 bg-primary m-0 p-4">
+              <div class="col-sm-1 bg-primary m-0 p-4">
                 TRACK 1
               </div>
-              <div class="col-sm-10 bg-dark m-0 p-4">
+              <div class="col-sm-11 bg-dark m-0 p-4">
                 GRID SYSTEM
               </div>
             </div>
 
             <div class="row m-0 p-0">
-              <div class="col-sm-2 bg-primary m-0 p-4">
+              <div class="col-sm-1 bg-primary m-0 p-4">
                 TRACK 2
               </div>
-              <div class="col-sm-10 bg-danger m-0 p-4">
+              <div class="col-sm-11 bg-danger m-0 p-4">
                 GRID SYSTEM
               </div>
             </div>
-
-            <div class="row m-0 p-0">
-              <div class="col-sm-2 bg-primary m-0 p-4">
-                TRACK 3
-              </div>
-              <div class="col-sm-10 bg-dark m-0 p-4">
-                GRID SYSTEM
-              </div>
-            </div>
+            
 
 
           </div>
-          <h6 class="p-2">MIXER</h6>
+          <h6 class="p-2 bg=dark mt-auto mb-auto">MIXER</h6>
           <div class="container-fluid mixer p-0" style="max-width: 1vw; height: 100%;">
-            <ul class="list-group list-group-horizontal" style="max-width: 50vw; height: 100%">
-              <li class="list-group-item mixi bg-dark"><kbd>1</kbd></li>
-              <li class="list-group-item mixi bg-dark"><kbd>2</kbd></li>
-              <li class="list-group-item mixi bg-dark"><kbd>3</kbd></li>
-              <li class="list-group-item mixi bg-dark"><kbd>4</kbd></li>
-              <li class="list-group-item mixi bg-dark"><kbd>5</kbd></li>
-              <li class="list-group-item mixi bg-dark"><kbd>6</kbd></li>
-              <li class="list-group-item mixi bg-dark"><kbd>7</kbd></li>
-              <li class="list-group-item mixi bg-dark"><kbd>8</kbd></li>
-              <li class="list-group-item mixi bg-dark"><kbd>9</kbd></li>
-              <li class="list-group-item mixi bg-dark"><kbd>10</kbd></li>
-              <li class="list-group-item mixi bg-dark"><kbd>11</kbd></li>
-              <li class="list-group-item mixi bg-dark"><kbd>12</kbd></li>
-              <li class="list-group-item mixi bg-dark"><kbd>13</kbd></li>
-              <li class="list-group-item mixi bg-dark"><kbd>14</kbd></li>
-              <li class="list-group-item mixi bg-dark"><kbd>15</kbd></li>
-              <li class="list-group-item mixi bg-dark"><kbd>16</kbd></li>
-              <li class="list-group-item mixi bg-dark"><kbd>17</kbd></li>
-              <li class="list-group-item mixi bg-dark"><kbd>18</kbd></li>
-              <li class="list-group-item mixi bg-dark"><kbd>19</kbd></li>
-              <li class="list-group-item mixi bg-dark"><kbd>20</kbd></li>
-              <li class="list-group-item mixi bg-dark"><kbd>21</kbd></li>
-              <li class="list-group-item mixi bg-dark"><kbd>22</kbd></li>
-              <li class="list-group-item mixi bg-dark"><kbd>23</kbd></li>
-              <li class="list-group-item mixi bg-dark"><kbd>24</kbd></li>
-              <li class="list-group-item mixi bg-dark"><kbd>25</kbd></li>
-              <li class="list-group-item mixi bg-dark"><kbd>26</kbd></li>
-              <li class="list-group-item mixi bg-dark"><kbd>27</kbd></li>
+            <ul class="list-group list-group-horizontal" id="mixerrack" style="max-width: 50vw; height: 100%">
+              
             </ul> 
           </div>
         </div>
         <div class="col-sm-1 friends">
           <h5 class="mt-2">FRIENDS</h5>
-            <input type="text" class="fsearch" placeholder="Search" 
+            <input type="text" id="friendSearch" onkeyup="searchF()" class="fsearch" placeholder="Search" 
             onfocus="this.placeholder = ''"
             onblur="this.placeholder = 'Search'" />
             <div class="m-0 my-3"></div>
-            <div class="list-group">
-              <a href="#" class="list-group-item lgi list-group-item-action active">
+            <div class="list-group" id="flist">
+              <a href="#" class="list-group-item lgi list-group-item-action">
                 <div class="container">
                   <div class="row">
                     <div class="col-sm-3 m-auto">
@@ -294,21 +279,6 @@
                     </div>
                     <div class="col-sm-6 m-auto">
                       <p class="m-auto" style="text-align: left;">Belak</p>
-                    </div>
-                    <div class="col-sm-3">
-                      <button type="button" class="btn btn-dark btn-sm ml-1" data-toggle="tooltip" data-placement="top" title="Invite"><i class="fas fa-user-plus"></i></button>
-                    </div>
-                  </div>
-                </div>
-              </a>
-              <a href="#" class="list-group-item lgi list-group-item-action">
-                <div class="container">
-                  <div class="row">
-                    <div class="col-sm-3 m-auto">
-                      IMG
-                    </div>
-                    <div class="col-sm-6 m-auto">
-                      Username
                     </div>
                     <div class="col-sm-3">
                       <button type="button" class="btn btn-dark btn-sm ml-1" data-toggle="tooltip" data-placement="top" title="Invite"><i class="fas fa-user-plus"></i></button>

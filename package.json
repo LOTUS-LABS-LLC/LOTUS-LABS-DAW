@@ -1,12 +1,12 @@
 {
   "name": "lotus",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Cutting edge DAW technology.",
   "main": "lotus.js",
   "scripts": {
     "start": "electron .",
     "dist": "electron-builder",
-    "distmac": "electron-builder -m -zip",
+    "distmac": "electron-builder -m",
     "distwin": "electron-builder -w",
     "distlin": "electron-builder -l"
   },
@@ -24,10 +24,6 @@
           ]
         }
       ]
-    },
-    "mac": {
-      "category": "net.lotus.daw",
-      "target": "zip"
     }
   },
   "author": "Anthony Bath",
@@ -36,6 +32,8 @@
     "@fortawesome/fontawesome-free": "^5.12.1",
     "bootstrap": "^4.3.1",
     "chalk": "^2.4.2",
+    "discord-rich-presence": "0.0.8",
+    "discord-rpc": "^3.1.0",
     "jquery": "^3.4.1",
     "popper.js": "^1.16.0"
   },
