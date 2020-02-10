@@ -1,0 +1,197 @@
+body{
+    background-color: #222;
+    font-family: 'Open Sans', sans-serif;
+    color: white;
+    max-height: 100vh;
+}
+
+* {
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0) !important; 
+    -webkit-focus-ring-color: rgba(255, 255, 255, 0) !important; 
+    outline: none !important;
+} 
+
+::-webkit-input-placeholder { /* Edge */
+  color: white;
+}
+
+.lgi.active{
+  background-color: #222;
+  color: white;
+  border-color: #222;
+}
+
+.lgi{
+  background-color: #333;
+  margin-top: 5px;
+  color: white;
+}
+
+.lgi:hover{
+  background-color: #222;
+  color: white;
+}
+
+.fsearch{
+  min-width: 100%;
+  color: white;
+  background-color: #444;
+  border: 0px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  text-align: center;
+}
+
+div.frame{
+    -webkit-user-select: none;
+    -webkit-app-region: drag;
+    background-color: #0099ff;
+    color: white;
+    font-weight: 100;
+}
+
+.content{
+  text-align: center;
+  min-height: 97vh;
+}
+
+.tools{
+  background-color: #333;
+  max-width: 50px;
+  display: block;
+}
+
+.files{
+  background-color: #2c2a2a;
+  min-width: 200px;
+}
+
+.playlist{
+  background-color: #242121;
+  min-width: 100%;
+  min-height: 75%;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.mixer{
+  background-color: #221f1f;
+  min-width: 100%;
+  max-width: 100%;
+  min-height: 21%;
+  max-height: 21%;
+  overflow-x: scroll;
+}
+
+.mixi{
+  width: 15vw;
+  max-width: 15vw;
+  padding-left: 3%;
+  padding-right: 3%;
+}
+
+.friends{
+  background-color: #2c2a2a;
+  min-width: 250px;
+  padding: 0px;
+}
+
+.bpm{
+  max-width: 100%;
+  color: white;
+  text-align: center;
+  border: 0px;
+}
+
+div.dropdown-divider{
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+div.label{
+  position: absolute; 
+  right: 10px;
+  text-align: right;
+}
+
+kbd{
+  color: white;
+}
+
+div.dropdown-menu{
+  border-radius: 0px;
+  border: 0px;
+  background-color: #333;
+  font-size: small;
+}
+
+a.dropdown-item{
+  color: white;
+}
+
+a.dropdown-item:hover{
+  color: white;
+  background-color: #0099ff;
+}
+
+button.btn-dropdown{
+  color: white;
+  background-color: transparent;
+  border: 0px;
+}
+
+button.btn-dropdown:hover{
+  color: white;
+  background-color: #444;
+  border: 0px;
+}
+
+.dropdown-toggle::after { 
+  content: none; 
+} 
+
+div.dropdown{
+  -webkit-app-region: no-drag;
+}
+
+.btn-group button, div.btn-group button.close {
+    -webkit-app-region: no-drag;
+    border: 0px solid transparent; /* Green border */
+    background-color: transparent;
+    color: white; /* White text */
+    cursor: pointer; /* Pointer/hand icon */
+    padding-left: 10px;
+    padding-right: 10px;
+    justify-content: right;
+    align-content: right;
+  }
+  
+  /* Add a background color on hover */
+  .btn-group button:hover {
+    background-color: #222;
+  }
+
+  .btn-group button.exit:hover {
+    background-color: rgb(250, 77, 77);
+  }
+
+  
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}

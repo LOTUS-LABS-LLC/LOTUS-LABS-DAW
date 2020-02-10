@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../node_modules/@fortawesome/fontawesome-free/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../CSS/dashboard.css">
+    <link rel="stylesheet" href="../CSS/LIB/Animate.css">
+
+    <title>Lotus</title>
+  </head>
+  <body onload="fullscreen()">
+
+    <!-- TOP BAR DO NOT DELETE-->
+    <div class="container-fluid frame">
+        <div class="row">
+          <img src="../IMG/lotusTPWhite.png" style="margin-left: 5px;" width="27px" height="27px">
+          <div class="dropdown">
+                    <button type="button" class="btn-dropdown btn-sm dropdown-toggle" data-toggle="dropdown" style="border-radius: 0px;">
+                        FILE
+                      </button>
+                      <div class="dropdown-menu" style="width: 300px;">
+                        <a class="dropdown-item" href="#">
+                          <div class="row">
+                              <div class="col-sm-6">New</div>
+                              <div class="col-sm label"><kbd>Ctrl</kbd> + <kbd>N</kbd></div>
+                          </div>
+                        </a>
+                        <a class="dropdown-item" href="#">
+                          <div class="row">
+                            <div class="col-sm-6 ddname">Open...</div>
+                            <div class="col-sm label"><kbd>Ctrl</kbd> + <kbd>O</kbd></div>
+                          </div>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">
+                          <div class="row">
+                              <div class="col-sm-6">Save</div>
+                              <div class="col-sm label"><kbd>Ctrl</kbd> + <kbd>S</kbd></div>
+                          </div>
+                        </a>
+                        <a class="dropdown-item" href="#">
+                          <div class="row">
+                              <div class="col-sm-6">Save As...</div>
+                              <div class="col-sm label"><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>S</kbd></div>
+                          </div>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">
+                          <div class="row">
+                              <div class="col-sm-6">Export As...</div>
+                              <div class="col-sm label"><kbd>Ctrl</kbd> + <kbd>E</kbd></div>
+                          </div>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#" onclick="exitWindow()">
+                          <div class="row">
+                              <div class="col-sm-6">Exit</div>
+                              <div class="col-sm label"></div>
+                          </div>
+                        </a>
+                      </div>
+                  </div> 
+                  <div class="dropdown">
+                    <button type="button" class="btn-dropdown btn-sm dropdown-toggle" data-toggle="dropdown" style="border-radius: 0px;">
+                        EDIT
+                      </button>
+                      <div class="dropdown-menu" style="width: 200px;">
+                        <a class="dropdown-item" href="#">
+                          <div class="row">
+                              <div class="col-sm-6">Undo</div>
+                              <div class="col-sm label"><kbd>Ctrl</kbd> + <kbd>Z</kbd></div>
+                          </div>
+                        </a>
+                        <a class="dropdown-item" href="#">
+                          <div class="row">
+                            <div class="col-sm-6 ddname">Redo</div>
+                            <div class="col-sm label"><kbd>Ctrl</kbd> + <kbd>Y</kbd></div>
+                          </div>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">
+                          <div class="row">
+                              <div class="col-sm-6">Cut</div>
+                              <div class="col-sm label"><kbd>Ctrl</kbd> + <kbd>X</kbd></div>
+                          </div>
+                        </a>
+                        <a class="dropdown-item" href="#">
+                          <div class="row">
+                              <div class="col-sm-6">Copy</div>
+                              <div class="col-sm label"><kbd>Ctrl</kbd> + <kbd>C</kbd></div>
+                          </div>
+                        </a>
+                        <a class="dropdown-item" href="#">
+                          <div class="row">
+                              <div class="col-sm-6">Paste</div>
+                              <div class="col-sm label"><kbd>Ctrl</kbd> + <kbd>V</kbd></div>
+                          </div>
+                        </a>
+                      </div>
+                  </div> 
+                  <div class="dropdown">
+                    <button type="button" class="btn-dropdown btn-sm dropdown-toggle" data-toggle="dropdown" style="border-radius: 0px;">
+                        OPTIONS
+                      </button>
+                      <div class="dropdown-menu" style="width: 200px;">
+                        <a class="dropdown-item" href="#">
+                          <div class="row">
+                              <div class="col-sm-6">Undo</div>
+                              <div class="col-sm label"><kbd>Ctrl</kbd> + <kbd>Z</kbd></div>
+                          </div>
+                        </a>
+                        <a class="dropdown-item" href="#">
+                          <div class="row">
+                            <div class="col-sm-6 ddname">Redo</div>
+                            <div class="col-sm label"><kbd>Ctrl</kbd> + <kbd>Y</kbd></div>
+                          </div>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">
+                          <div class="row">
+                              <div class="col-sm-6">Cut</div>
+                              <div class="col-sm label"><kbd>Ctrl</kbd> + <kbd>X</kbd></div>
+                          </div>
+                        </a>
+                        <a class="dropdown-item" href="#">
+                          <div class="row">
+                              <div class="col-sm-6">Copy</div>
+                              <div class="col-sm label"><kbd>Ctrl</kbd> + <kbd>C</kbd></div>
+                          </div>
+                        </a>
+                        <a class="dropdown-item" href="#">
+                          <div class="row">
+                              <div class="col-sm-6">Paste</div>
+                              <div class="col-sm label"><kbd>Ctrl</kbd> + <kbd>V</kbd></div>
+                          </div>
+                        </a>
+                      </div>
+                  </div> 
+                  <div class="dropdown">
+                    <button type="button" class="btn-dropdown btn-sm dropdown-toggle" data-toggle="dropdown" style="border-radius: 0px;">
+                        HELP
+                      </button>
+                      <div class="dropdown-menu" style="width: 200px;">
+                        <a class="dropdown-item" href="#">
+                          <div class="row">
+                              <div class="col-sm-6">Help Documents</div>
+                              <div class="col-sm label"></div>
+                          </div>
+                        </a>
+                      </div>
+                  </div> 
+            <div class="col-sm">
+                
+            </div>
+            <div class="btn-group">
+                <button class="min" id="min">−</button>
+                <button class="max" id="max">⛶</button>
+                <button class="exit" id="exit">⨉</button>
+            </div> 
+        </div>
+    </div>
+
+
+    <div class="container-fluid">
+      <div class="row content">
+        <div class="col-sm-1 tools p-0">
+          <div class="mt-3">
+            BPM
+            <input class="bpm mt-0 bg-primary" type="number" id="replyNumber" value="130">
+          </div>
+          <div class="mt-3">
+            PAT
+            <input class="bpm mt-0 bg-primary" type="number" id="replyNumber" value="1">
+          </div>
+          
+          <button type="button" class="btn btn-primary mt-4 pt-2 pb-2 border-0" style="width: 100%;" data-toggle="tooltip" data-placement="right" title="Metronome"><i class="far fa-clock fa-lg"></i></button>
+          <button type="button" class="btn btn-primary mt-2 pt-2 pb-2 border-0" style="width: 100%;" data-toggle="tooltip" data-placement="right" title="Pencil"><i class="fas fa-pencil-alt fa-lg"></i></button>
+          <button type="button" class="btn btn-primary mt-2 pt-2 pb-2 border-0" style="width: 100%;" data-toggle="tooltip" data-placement="right" title="Cut"><i class="fas fa-cut fa-lg"></i></button>
+          <button type="button" class="btn btn-primary mt-2 pt-2 pb-2 border-0" style="width: 100%;" data-toggle="tooltip" data-placement="right" title="Record"><i class="far fa-dot-circle fa-lg"></i></button>
+
+
+
+
+
+
+
+
+        </div>
+        <div class="col-sm-1 files p-0">
+          <h5 class="p-2 m-0" style="background-color: #2b2828;">FILES</h5>
+        </div>
+        <div class="col-sm m-0 p-0">
+          <div class="container-fluid playlist p-0">
+
+
+            <h5 class="m-auto p-0" style="background-color: #242121;"><img src="../IMG/lotusTPWhite.png" width="50px"></h5 class="m-auto">
+
+
+            <div class="row m-0 p-0">
+              <div class="col-sm-2 bg-primary m-0 p-4">
+                TRACK 1
+              </div>
+              <div class="col-sm-10 bg-dark m-0 p-4">
+                GRID SYSTEM
+              </div>
+            </div>
+
+            <div class="row m-0 p-0">
+              <div class="col-sm-2 bg-primary m-0 p-4">
+                TRACK 2
+              </div>
+              <div class="col-sm-10 bg-danger m-0 p-4">
+                GRID SYSTEM
+              </div>
+            </div>
+
+            <div class="row m-0 p-0">
+              <div class="col-sm-2 bg-primary m-0 p-4">
+                TRACK 3
+              </div>
+              <div class="col-sm-10 bg-dark m-0 p-4">
+                GRID SYSTEM
+              </div>
+            </div>
+
+
+          </div>
+          <h6 class="p-2">MIXER</h6>
+          <div class="container-fluid mixer p-0" style="max-width: 1vw; height: 100%;">
+            <ul class="list-group list-group-horizontal" style="max-width: 50vw; height: 100%">
+              <li class="list-group-item mixi bg-dark"><kbd>1</kbd></li>
+              <li class="list-group-item mixi bg-dark"><kbd>2</kbd></li>
+              <li class="list-group-item mixi bg-dark"><kbd>3</kbd></li>
+              <li class="list-group-item mixi bg-dark"><kbd>4</kbd></li>
+              <li class="list-group-item mixi bg-dark"><kbd>5</kbd></li>
+              <li class="list-group-item mixi bg-dark"><kbd>6</kbd></li>
+              <li class="list-group-item mixi bg-dark"><kbd>7</kbd></li>
+              <li class="list-group-item mixi bg-dark"><kbd>8</kbd></li>
+              <li class="list-group-item mixi bg-dark"><kbd>9</kbd></li>
+              <li class="list-group-item mixi bg-dark"><kbd>10</kbd></li>
+              <li class="list-group-item mixi bg-dark"><kbd>11</kbd></li>
+              <li class="list-group-item mixi bg-dark"><kbd>12</kbd></li>
+              <li class="list-group-item mixi bg-dark"><kbd>13</kbd></li>
+              <li class="list-group-item mixi bg-dark"><kbd>14</kbd></li>
+              <li class="list-group-item mixi bg-dark"><kbd>15</kbd></li>
+              <li class="list-group-item mixi bg-dark"><kbd>16</kbd></li>
+              <li class="list-group-item mixi bg-dark"><kbd>17</kbd></li>
+              <li class="list-group-item mixi bg-dark"><kbd>18</kbd></li>
+              <li class="list-group-item mixi bg-dark"><kbd>19</kbd></li>
+              <li class="list-group-item mixi bg-dark"><kbd>20</kbd></li>
+              <li class="list-group-item mixi bg-dark"><kbd>21</kbd></li>
+              <li class="list-group-item mixi bg-dark"><kbd>22</kbd></li>
+              <li class="list-group-item mixi bg-dark"><kbd>23</kbd></li>
+              <li class="list-group-item mixi bg-dark"><kbd>24</kbd></li>
+              <li class="list-group-item mixi bg-dark"><kbd>25</kbd></li>
+              <li class="list-group-item mixi bg-dark"><kbd>26</kbd></li>
+              <li class="list-group-item mixi bg-dark"><kbd>27</kbd></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="col-sm-1 friends">
+          <h5 class="mt-2">FRIENDS</h5>
+            <input type="text" class="fsearch" placeholder="Search" 
+            onfocus="this.placeholder = ''"
+            onblur="this.placeholder = 'Search'" />
+            <div class="m-0 my-3"></div>
+            <div class="list-group">
+              <a href="#" class="list-group-item lgi list-group-item-action active">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-sm-3 m-auto">
+                      <img class="rounded-circle" src="../IMG/ICNS/krowned.png" width="35px">
+                    </div>
+                    <div class="col-sm-6 m-auto">
+                      <p class="m-auto" style="text-align: left;">Krowned</p>
+                    </div>
+                    <div class="col-sm-3">
+                      <button type="button" class="btn btn-dark btn-sm ml-1" data-toggle="tooltip" data-placement="top" title="Invite"><i class="fas fa-user-plus"></i></button>
+                    </div>
+                  </div>
+                </div>
+              </a>
+              <a href="#" class="list-group-item lgi list-group-item-action">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-sm-3 m-auto">
+                      <img class="rounded-circle" src="../IMG/ICNS/belak.png" width="35px">
+                    </div>
+                    <div class="col-sm-6 m-auto">
+                      <p class="m-auto" style="text-align: left;">Belak</p>
+                    </div>
+                    <div class="col-sm-3">
+                      <button type="button" class="btn btn-dark btn-sm ml-1" data-toggle="tooltip" data-placement="top" title="Invite"><i class="fas fa-user-plus"></i></button>
+                    </div>
+                  </div>
+                </div>
+              </a>
+              <a href="#" class="list-group-item lgi list-group-item-action">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-sm-3 m-auto">
+                      IMG
+                    </div>
+                    <div class="col-sm-6 m-auto">
+                      Username
+                    </div>
+                    <div class="col-sm-3">
+                      <button type="button" class="btn btn-dark btn-sm ml-1" data-toggle="tooltip" data-placement="top" title="Invite"><i class="fas fa-user-plus"></i></button>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script>require('jquery');</script>
+    <script>require('popper.js');</script>
+    <script>require('bootstrap');</script>
+    <script src="../JS/dashboard.js"></script>
+  </body>
+</html>

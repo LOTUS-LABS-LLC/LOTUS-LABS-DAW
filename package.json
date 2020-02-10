@@ -1,0 +1,46 @@
+{
+  "name": "lotus",
+  "version": "0.0.3",
+  "description": "Cutting edge DAW technology.",
+  "main": "lotus.js",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder",
+    "distmac": "electron-builder -m -zip",
+    "distwin": "electron-builder -w",
+    "distlin": "electron-builder -l"
+  },
+  "build": {
+    "appId": "net.lotus.daw",
+    "productName": "Lotus",
+    "artifactName": "${productName} ${version}.${ext}",
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64",
+            "ia32"
+          ]
+        }
+      ]
+    },
+    "mac": {
+      "category": "net.lotus.daw",
+      "target": "zip"
+    }
+  },
+  "author": "Anthony Bath",
+  "license": "ISC",
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.12.1",
+    "bootstrap": "^4.3.1",
+    "chalk": "^2.4.2",
+    "jquery": "^3.4.1",
+    "popper.js": "^1.16.0"
+  },
+  "devDependencies": {
+    "electron": "^7.0.0",
+    "electron-builder": "^22.3.2"
+  }
+}
