@@ -6,8 +6,6 @@ setInterval(() => {
     i++;
     $('.progress-bar').css('width', i+'%').attr('aria-valuenow', i);
     if(i >= 300){
-        console.log(i);
-        i = 0;
-        window.location.href = '../HTML/dashboard.html';
+        window.location.href = '../HTML/key.html';
     }
 }, 20);

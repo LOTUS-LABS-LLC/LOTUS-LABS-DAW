@@ -1,0 +1,76 @@
+body{
+    background-image: url("../IMG/createaccbg.png");
+    background-size: 100vw 100vh;
+    background-repeat: no-repeat;
+    font-family: 'Open Sans', sans-serif;
+    color: white;
+}
+
+
+* {
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0) !important; 
+    -webkit-focus-ring-color: rgba(255, 255, 255, 0) !important; 
+    outline: none !important;
+} 
+
+div.loginimg{
+    border: 2px solid white;
+    background-color: rgba(39, 39, 39, 0.411);
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    text-align: center;
+}
+
+div.loginarea{
+    margin-top: 13%;
+    margin-bottom: 10%;
+}
+
+div.loginform{
+    background-color: white;
+    color: #222;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+form.logingroup{
+    max-width: 75%;
+    align-content: center;
+    display: block;
+    margin: auto;
+    text-align: center;
+}
+
+div.frame{
+    -webkit-user-select: none;
+    -webkit-app-region: drag;
+    background-color: #0099ff;
+    color: white;
+    font-weight: 100;
+}
+
+.btn-group button, div.btn-group button.close {
+    -webkit-app-region: no-drag;
+    border: 0px solid transparent; 
+    background-color: transparent;
+    color: white; 
+    cursor: pointer;
+    padding-left: 10px;
+    padding-right: 10px;
+    justify-content: right;
+    align-content: right;
+  }
+  
+  .btn-group button:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .btn-group button.exit:hover {
+    background-color: #fa4d4d;
+  }
