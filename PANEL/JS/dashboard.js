@@ -10,6 +10,8 @@ function fullscreen(){
     audio.play();
 }
 
+
+
 // Box width
 var bw = 400;
 // Box height
@@ -34,11 +36,23 @@ function drawBoard(){
 }
 
 
+
+
 function mixerrack(){
     for(i = 1; i <= 200; i++){
-        $("#mixerrack").append('<li class="list-group-item mixi bg-dark"><kbd>' + i + '</kbd></li>');
-        console.log(i);
+      setBar(i);
+      $("#slider" + i).on("input", setBar(i));
+        $("#mixerrack").append('<li class="list-group-item mixi bg-dark"><kbd>' + i + '</kbd><div class="slider-container"><span class="bar"><span class="fill"></span></span><input type="range" id="slider' + i + '" class="slider" min="0" max="100" value="50"></div></li>');
     }
+}
+
+function setBar(number){
+  var min = parseInt($("#slider" + number).attr("min"));
+  var max = parseInt($("#slider" + number).attr("max"));
+  var val = parseInt($("#slider" + number).val());
+  var percent = ((val - min) / (max - min) * 100);
+
+  $(".bar .fill").css("height", percent + "%");
 }
 
 document.getElementById('min').addEventListener('click', minWindow);
