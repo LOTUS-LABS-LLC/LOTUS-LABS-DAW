@@ -40,10 +40,10 @@ function drawBoard(){
 
 function mixerrack(){
     for(i = 1; i <= 200; i++){
-      setBar(i);
-      $("#slider" + i).on("input", setBar(i));
         $("#mixerrack").append('<li class="list-group-item mixi bg-dark"><kbd>' + i + '</kbd><div class="slider-container"><span class="bar"><span class="fill"></span></span><input type="range" id="slider' + i + '" class="slider" min="0" max="100" value="50"></div></li>');
-    }
+        $("#slider" + i).on("input", setBar(i));
+        setBar(i);
+      }
 }
 
 function setBar(number){
