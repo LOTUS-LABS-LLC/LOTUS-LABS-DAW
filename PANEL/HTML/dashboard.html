@@ -14,7 +14,7 @@
 
     <title>Lotus</title>
   </head>
-  <body onload="fullscreen(); mixerrack(); drawBoard();">
+  <body onresize="resize_check()" onload="fullscreen(); mixerrack(); drawBoard(0,0);">
 
     <!-- TOP BAR DO NOT DELETE-->
     <div class="container-fluid frame">
@@ -222,30 +222,7 @@
         <div class="col-sm m-0 p-0" style="max-height: 10%;">
           <h5 class="m-auto p-0" style="background-color: #242121;"><img src="../IMG/lotusTPWhite.png" width="50px"></h5 class="m-auto">
           <div class="container-fluid playlist p-0">
-
-
-
-
-            <div class="row m-0 p-0">
-              <div class="col-sm-1 bg-primary m-0 p-4">
-                TRACK 1
-              </div>
-              <div class="col-sm-11 bg-dark m-0 p-4">
-                <canvas id="tracklist" style="margin: 0; padding: 0;"></canvas>
-              </div>
-            </div>
-
-            <div class="row m-0 p-0">
-              <div class="col-sm-1 bg-primary m-0 p-4">
-                TRACK 2
-              </div>
-              <div class="col-sm-11 bg-danger m-0 p-4">
-                GRID SYSTEM
-              </div>
-            </div>
-            
-
-
+            <canvas onmouseenter="playlist_focused=true" onmouseleave="playlist_focused=false" id="tracklist" style="width: 100%; height: 100%; margin: 0; padding: 0; position:absolute;"></canvas>
           </div>
           <h6 class="p-2 bg=dark mt-auto mb-auto">MIXER</h6>
           <div class="container-fluid mixer p-0" style="max-width: 1vw; height: 100%;">
@@ -306,5 +283,9 @@
     <script>require('popper.js');</script>
     <script>require('bootstrap');</script>
     <script src="../JS/dashboard.js"></script>
+    <script type="text/javascript">
+      addEventListeners();
+      initPlaylistBound();
+    </script>
   </body>
 </html>

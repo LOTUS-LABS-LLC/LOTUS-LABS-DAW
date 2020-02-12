@@ -3,6 +3,7 @@ body{
     font-family: 'Open Sans', sans-serif;
     color: white;
     max-height: 100vh;
+    overflow: hidden;
 }
 
 * {
@@ -71,8 +72,9 @@ div.frame{
   min-width: 100%;
   min-height: 65vh;
   max-height: 65vh;
-  overflow-y: scroll;
+  overflow: scroll;
   text-align: left;
+  position: relative;
 }
 
 .filetree{

@@ -1,0 +1,14 @@
+{
+  "name": "lotus-module",
+  "version": "0.1.0",
+  "description": "Lotus DAW engine bindings for NodeJS",
+  "main": "lib/index.js",
+  "author": "sweatercuff <toastymod@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "neon-cli": "^0.3.3"
+  },
+  "scripts": {
+    "install": "neon build --release"
+  }
+}
