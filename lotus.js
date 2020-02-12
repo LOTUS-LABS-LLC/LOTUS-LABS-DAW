@@ -20,7 +20,7 @@ async function setActivity() {
 
   rpc.setActivity({
     details: `LOTUS DAW`,
-    state: 'Ver' + config.version,
+    state: 'Ver ' + config.version,
     startTimestamp,
     largeImageKey: 'lotus',
     largeImageText: 'Lotus DAW',
