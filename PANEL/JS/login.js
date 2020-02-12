@@ -1,6 +1,13 @@
 const {remote, ipcRenderer} = require('electron');
 const $ = require('jquery');
 
+function fullscreen(){
+    var window = remote.getCurrentWindow();
+    window.maximize();
+    window.focus();
+    window.setMinimumSize(1600, 800);
+}
+
 document.getElementById('min').addEventListener('click', minWindow);
 document.getElementById('max').addEventListener('click', maxWindow);
 document.getElementById('exit').addEventListener('click', exitWindow);

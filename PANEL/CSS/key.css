@@ -13,8 +13,8 @@ body{
 } 
 
 div.loginimg{
-    border: 2px solid white;
-    background-color: rgba(39, 39, 39, 0.411);
+    border: 2px solid #222;
+    background-color: rgba(39, 39, 39, 0.7);
     background-size: cover;
     background-repeat: no-repeat;
     border-top-left-radius: 10px;
@@ -29,8 +29,8 @@ div.loginarea{
 }
 
 div.loginform{
-    background-color: white;
-    color: #222;
+    background-color: #222;
+    color: white;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
     padding-top: 50px;
@@ -48,7 +48,7 @@ form.logingroup{
 div.frame{
     -webkit-user-select: none;
     -webkit-app-region: drag;
-    background-color: #0099ff;
+    background-color: #222;
     color: white;
     font-weight: 100;
 }

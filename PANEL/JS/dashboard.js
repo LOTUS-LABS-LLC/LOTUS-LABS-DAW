@@ -10,6 +10,30 @@ function fullscreen(){
     audio.play();
 }
 
+// Box width
+var bw = 400;
+// Box height
+var bh = 400;
+// Padding
+var p = 0;
+
+var canvas = document.getElementById("tracklist");
+var context = canvas.getContext("2d");
+function drawBoard(){
+    for (var x = 0; x <= bw; x += 20) {
+        context.moveTo(0.5 + x + p, p);
+        context.lineTo(0.5 + x + p, bh + p);
+    }
+
+    for (var x = 0; x <= bh; x += 60) {
+        context.moveTo(p, 0.5 + x + p);
+        context.lineTo(bw + p, 0.5 + x + p);
+    }
+    context.strokeStyle = "white";
+    context.stroke();
+}
+
+
 function mixerrack(){
     for(i = 1; i <= 200; i++){
         $("#mixerrack").append('<li class="list-group-item mixi bg-dark"><kbd>' + i + '</kbd></li>');

@@ -14,7 +14,7 @@
 
     <title>Lotus</title>
   </head>
-  <body onload="fullscreen(); mixerrack();">
+  <body onload="fullscreen(); mixerrack(); drawBoard();">
 
     <!-- TOP BAR DO NOT DELETE-->
     <div class="container-fluid frame">
@@ -226,7 +226,7 @@
                 TRACK 1
               </div>
               <div class="col-sm-11 bg-dark m-0 p-4">
-                GRID SYSTEM
+                <canvas id="tracklist" style="margin: 0; padding: 0;"></canvas>
               </div>
             </div>
 
