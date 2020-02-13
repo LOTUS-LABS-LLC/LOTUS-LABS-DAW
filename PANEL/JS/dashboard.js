@@ -116,7 +116,7 @@ function drawBoard(offsetX,offsetY){
         }
         
     }
-    context.strokeStyle = "white";
+    context.strokeStyle = "#808080";
     context.stroke();
 }
 

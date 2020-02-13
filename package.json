@@ -1,7 +1,7 @@
 {
   "name": "lotus",
   "version": "0.1.1",
-  "description": "Cutting edge DAW technology.",
+  "description": "A DAW by artists for artists.",
   "main": "lotus.js",
   "scripts": {
     "start": "electron .",
@@ -33,7 +33,6 @@
     "bootstrap": "^4.3.1",
     "chalk": "^2.4.2",
     "clamp": "^1.0.1",
-    "discord-rich-presence": "0.0.8",
     "discord-rpc": "^3.1.0",
     "jquery": "^3.4.1",
     "popper.js": "^1.16.0"
