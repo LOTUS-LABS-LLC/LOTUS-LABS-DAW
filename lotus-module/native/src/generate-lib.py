@@ -25,7 +25,7 @@ jsm = open("../../lib/index.js", "w+")
 lib.write("use neon::prelude::*;\nuse neon::register_module;\nmod "+libname+";\n")
 
 #now for the js module
-jsm.write("var mod = require('../native');\nclass OutFn {\n")
+jsm.write("var mod = require('../native');\nclass OutFn {\nconstructor(){\n}\n")
 
 print("iterating",isize,"lines...")
 
@@ -54,7 +54,7 @@ for ln in range(0,isize):
 			#write neon binding function to lib.rs
 			lib.write("fn "+stripped[:end]+"_fn(mut cx: FunctionContext) -> JsResult<JsUndefined> {\n"+libname+"::"+stripped[:end]+"();\nOk(cx.undefined())\n}\n")
 			#connect function to module exporting class
-			jsm.write(stripped[:end]+" = mod."+stripped[:end]+";\n")
+			jsm.write(stripped[:end]+" = mod."+stripped[:end]+"_fn;\n")
 			target_line = False	
 		ic+=1
 
@@ -65,9 +65,9 @@ jsm.write("}\nmodule.exports = new OutFn();")
 lib.write("register_module!(mut cx, {\n")
 
 for f in funclist:
-	lib.write("cx.export_function(\""+f+"_fn\", "+f+"_fn)\n")
-
-lib.write("});\n")
+	lib.write("cx.export_function(\""+f+"_fn\", "+f+"_fn)?;\n")
+	
+lib.write("Ok(())\n});\n")
 
 
 

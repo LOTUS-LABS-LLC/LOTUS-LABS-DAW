@@ -1,6 +1,7 @@
 const {remote} = require('electron');
 const clamp = require('clamp');
 const $ = require('jquery');
+const engine = require('lotus-module');
 
 var canvas = document.getElementById("tracklist");
 var context = canvas.getContext("2d");
@@ -15,6 +16,10 @@ var UI_SENS = [1,0.5];
 
 var ui_refresh = Date.now();
 var ui_refresh_rate = 3;
+
+function startEngine(){   
+  engine.start_as_api();
+}
 
 function addEventListeners(){
     $("#tracklist").on("mouseenter", function(e){

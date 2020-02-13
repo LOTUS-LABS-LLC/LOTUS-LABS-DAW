@@ -8,7 +8,8 @@
     "dist": "electron-builder",
     "distmac": "electron-builder -m",
     "distwin": "electron-builder -w",
-    "distlin": "electron-builder -l"
+    "distlin": "electron-builder -l",
+    "build": "electron-build-env neon build --release lotus-module"
   },
   "build": {
     "appId": "net.lotus.daw",
@@ -34,11 +35,16 @@
     "chalk": "^2.4.2",
     "clamp": "^1.0.1",
     "discord-rpc": "^3.1.0",
+    "electron-build-env": "^0.2.0",
     "jquery": "^3.4.1",
+    "lotus-module": "file:./lotus-module",
+    "neon": "^2.0.0",
+    "neon-cli": "^0.3.3",
     "popper.js": "^1.16.0"
   },
   "devDependencies": {
     "electron": "^7.0.0",
-    "electron-builder": "^22.3.2"
+    "electron-builder": "^22.3.2",
+    "neon-cli": "^0.3.3"
   }
 }
