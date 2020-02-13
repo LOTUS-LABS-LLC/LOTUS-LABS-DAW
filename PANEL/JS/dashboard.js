@@ -135,7 +135,6 @@ function setBar(number){
   var max = parseInt($("#slider" + number).attr("max"));
   var val = parseInt($("#slider" + number).val());
   var percent = ((val - min) / (max - min) * 100);
-  console.log(number)
   $(".bar .fill").height(percent + "%");
 }
 
