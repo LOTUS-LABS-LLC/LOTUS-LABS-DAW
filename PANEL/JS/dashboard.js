@@ -4,6 +4,7 @@ const $ = require('jquery');
 var osutils = require('os-utils');
 var Chart = require('chart.js');
 var process = require('process');
+const engine = require('lotus-module');
 
 var canvas = document.getElementById("tracklist");
 var context = canvas.getContext("2d");
@@ -18,7 +19,6 @@ var UI_SENS = [1,0.5];
 
 var ui_refresh = Date.now();
 var ui_refresh_rate = 3;
-
 
 document.onkeyup = function(key){
     if(key.ctrlKey && key.altKey && key.which == 68){
@@ -36,8 +36,10 @@ console.log = function(){
     document.getElementById("errorLog").scrollIntoView();
     document.getElementById("errorLog")
 }
-  
-  
+
+function startEngine(){   
+  engine.start_as_api();
+}
 
 function addEventListeners(){
     $("#tracklist").on("mouseenter", function(e){

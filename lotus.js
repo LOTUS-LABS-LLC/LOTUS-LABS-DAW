@@ -2,8 +2,6 @@ const { app, BrowserWindow, ipcMain} = require('electron')
 const DiscordRPC = require('discord-rpc');
 const config = require('./package.json');
 
-
-
 let win
 const clientId = '676326859851563018';
 
