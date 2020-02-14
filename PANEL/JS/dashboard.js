@@ -1,7 +1,9 @@
 const {remote} = require('electron');
 const clamp = require('clamp');
 const $ = require('jquery');
-const engine = require('lotus-module');
+var osutils = require('os-utils');
+var Chart = require('chart.js');
+var process = require('process');
 
 var canvas = document.getElementById("tracklist");
 var context = canvas.getContext("2d");
@@ -17,9 +19,25 @@ var UI_SENS = [1,0.5];
 var ui_refresh = Date.now();
 var ui_refresh_rate = 3;
 
-function startEngine(){   
-  engine.start_as_api();
+
+document.onkeyup = function(key){
+    if(key.ctrlKey && key.altKey && key.which == 68){
+        $('#exampleModal').modal('toggle');
+    }
 }
+
+//FOR CONSOLE LOGGIN MAKE SURE THIS IS IN EVERY CLASS
+console.stdlog = console.log.bind(console);
+console.logs = [];
+console.log = function(){
+    console.logs.push(Array.from(arguments));
+    console.stdlog.apply(console, arguments);
+    document.getElementById("errorLog").prepend(Array.from(arguments) + `\n`);
+    document.getElementById("errorLog").scrollIntoView();
+    document.getElementById("errorLog")
+}
+  
+  
 
 function addEventListeners(){
     $("#tracklist").on("mouseenter", function(e){
@@ -191,4 +209,197 @@ $(function () {
       }
     }
   }
+
+
+  var cpuChart = document.getElementById('cpuChart').getContext('2d');
+  var myChart = new Chart(cpuChart, {
+      type: 'line',
+      data: {
+          labels: ["0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0"],
+          datasets: [{
+              label: 'CPU Usage',
+              data: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+              backgroundColor: [
+                'rgb(0, 153, 255, 0.5)',
+                'rgb(0, 153, 255, 0.5)',
+                'rgb(0, 153, 255, 0.5)',
+                'rgb(0, 153, 255, 0.5)',
+                'rgb(0, 153, 255, 0.5)',
+                'rgb(0, 153, 255, 0.5)',
+                'rgb(0, 153, 255, 0.5)',
+                'rgb(0, 153, 255, 0.5)',
+                'rgb(0, 153, 255, 0.5)',
+                'rgb(0, 153, 255, 0.5)',
+                'rgb(0, 153, 255, 0.5)',
+                'rgb(0, 153, 255, 0.5)',
+                'rgb(0, 153, 255, 0.5)',
+                'rgb(0, 153, 255, 0.5)',
+                'rgb(0, 153, 255, 0.5)',
+                'rgb(0, 153, 255, 0.5)',
+                'rgb(0, 153, 255, 0.5)',
+                'rgb(0, 153, 255, 0.5)',
+                'rgb(0, 153, 255, 0.5)',
+                'rgb(0, 153, 255, 0.5)'
+              ],
+              borderColor: [
+                'rgb(0, 153, 255)',
+                'rgb(0, 153, 255)',
+                'rgb(0, 153, 255)',
+                'rgb(0, 153, 255)',
+                'rgb(0, 153, 255)',
+                'rgb(0, 153, 255)',
+                'rgb(0, 153, 255)',
+                'rgb(0, 153, 255)',
+                'rgb(0, 153, 255)',
+                'rgb(0, 153, 255)',
+                'rgb(0, 153, 255)',
+                'rgb(0, 153, 255)',
+                'rgb(0, 153, 255)',
+                'rgb(0, 153, 255)',
+                'rgb(0, 153, 255)',
+                'rgb(0, 153, 255)',
+                'rgb(0, 153, 255)',
+                'rgb(0, 153, 255)',
+                'rgb(0, 153, 255)',
+                'rgb(0, 153, 255)'
+              ],
+              borderWidth: 1
+          }]
+      },
+      options: {
+        elements: {
+            point:{
+                radius: 0
+            }
+        },
+        datalabels: {
+            display: false,
+        },
+          responsive: true,
+          scales: {
+              yAxes: [{
+                  ticks: {
+                      beginAtZero: true,
+                      suggestedMin: 0
+                  }
+              }]
+          }
+      }
+  });
+
+  var ramChart = document.getElementById('ramChart').getContext('2d');
+  var myChart1 = new Chart(ramChart, {
+      type: 'line',
+      data: {
+          labels: ["0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0"],
+          datasets: [{
+              label: 'DAW RAM Usage',
+              data: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+              backgroundColor: [
+                'rgba(253, 76, 76, 0.9)',
+                'rgba(253, 76, 76, 0.9)',
+                'rgba(253, 76, 76, 0.9)',
+                'rgba(253, 76, 76, 0.9)',
+                'rgba(253, 76, 76, 0.9)',
+                'rgba(253, 76, 76, 0.9)',
+                'rgba(253, 76, 76, 0.9)',
+                'rgba(253, 76, 76, 0.9)',
+                'rgba(253, 76, 76, 0.9)',
+                'rgba(253, 76, 76, 0.9)',
+                'rgba(253, 76, 76, 0.9)',
+                'rgba(253, 76, 76, 0.9)',
+                'rgba(253, 76, 76, 0.9)',
+                'rgba(253, 76, 76, 0.9)',
+                'rgba(253, 76, 76, 0.9)',
+                'rgba(253, 76, 76, 0.9)',
+                'rgba(253, 76, 76, 0.9)',
+                'rgba(253, 76, 76, 0.9)',
+                'rgba(253, 76, 76, 0.9)',
+                'rgba(253, 76, 76, 0.9)'
+              ],
+              borderColor: [
+                'rgb(0, 153, 255)',
+                'rgb(0, 153, 255)',
+                'rgb(0, 153, 255)',
+                'rgb(0, 153, 255)',
+                'rgb(0, 153, 255)',
+                'rgb(0, 153, 255)',
+                'rgb(0, 153, 255)',
+                'rgb(0, 153, 255)',
+                'rgb(0, 153, 255)',
+                'rgb(0, 153, 255)',
+                'rgb(0, 153, 255)',
+                'rgb(0, 153, 255)',
+                'rgb(0, 153, 255)',
+                'rgb(0, 153, 255)',
+                'rgb(0, 153, 255)',
+                'rgb(0, 153, 255)',
+                'rgb(0, 153, 255)',
+                'rgb(0, 153, 255)',
+                'rgb(0, 153, 255)',
+                'rgb(0, 153, 255)'
+              ],
+              borderWidth: 1
+          }]
+      },
+      options: {
+        elements: {
+            point:{
+                radius: 0
+            }
+        },
+        datalabels: {
+            display: false,
+        },
+          responsive: true,
+          scales: {
+              yAxes: [{
+                  ticks: {
+                      beginAtZero: true,
+                      suggestedMin: 0
+                  }
+              }]
+          }
+      }
+  });
+
+
+
+  setInterval(() => {
+    osutils.cpuUsage(function(v){
+        document.getElementById('cpuMonitor').innerText = (parseFloat(v).toString().substring(0, 4) + '%');
+        myChart.data.datasets[0].data.shift();
+        myChart.data.labels.shift();
+        myChart.data.datasets[0].data.push(v);
+        myChart.data.labels.push(parseFloat(v).toString().substring(0, 4) + '%');
+        if(v*15 <=2){
+            myChart.options.scales.yAxes[0].ticks.suggestedMax = parseInt(2);
+        }else{
+            myChart.options.scales.yAxes[0].ticks.suggestedMax = parseInt(v*15);
+        }
+        myChart.update();
+    });
+    myChart.render();
+
+
+
+
+    document.getElementById('ramFree').innerText = (parseInt(process.memoryUsage().heapUsed).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".").substring(0,4) + ' MB');
+    myChart1.data.datasets[0].data.shift();
+    myChart1.data.labels.shift();
+    myChart1.data.datasets[0].data.push((parseInt(process.memoryUsage().heapUsed).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".").substring(0,4) / 1000));
+    myChart1.data.labels.push((parseInt(process.memoryUsage().heapUsed).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".").substring(0,4) + ' MB'));
+    myChart1.options.scales.yAxes[0].ticks.suggestedMax = (parseInt(process.memoryUsage().heapUsed).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".").substring(0,4)*0.01);
+    myChart1.update();
+
+
+    
+
+    document.getElementById('ramTotal').innerText = (parseInt(osutils.totalmem()).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".").substring(0,4) + ' GB');
+    document.getElementById('platform').innerText = (osutils.platform());
+
+
+  }, 1000);
+
+
   

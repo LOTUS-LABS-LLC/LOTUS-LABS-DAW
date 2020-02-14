@@ -146,13 +146,21 @@
                     <button type="button" class="btn-dropdown btn-sm dropdown-toggle" data-toggle="dropdown" style="border-radius: 0px;">
                         HELP
                       </button>
-                      <div class="dropdown-menu" style="width: 200px;">
+                      <div class="dropdown-menu" style="width: 300px;">
                         <a class="dropdown-item" href="#">
                           <div class="row">
                               <div class="col-sm-6">Help Documents</div>
                               <div class="col-sm label"></div>
                           </div>
                         </a>
+                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#exampleModal">
+                          <div class="row">
+                              <div class="col-sm-6">Debug Menu</div>
+                              <div class="col-sm label"><kbd>Ctrl</kbd> + <kbd>ALT</kbd> + <kbd>D</kbd></div>
+                          </div>
+                        </a>
+
+
                       </div>
                   </div> 
             <div class="col-sm">
@@ -164,6 +172,60 @@
                 <button class="exit" id="exit">⨉</button>
             </div> 
         </div>
+    </div>
+
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header" style="border: 0px;">
+            <h5 class="modal-title" id="exampleModalLongTitle">DEBUG MENU</h5>
+          </div>
+          <div class="modal-body p-5">
+            <div class="row">
+              <div class="col-sm-3">
+                <h6>CPU USAGE:</h6>
+                <p id="cpuMonitor">0</p>
+              </div>
+              <div class="col-sm-3">
+                <h6>RAM USAGE:</h6>
+                <p id="ramFree">0</p>
+              </div>
+              <div class="col-sm-3">
+                <h6>TOTAL RAM:</h6>
+                <p id="ramTotal">0</p>
+              </div>
+              <div class="col-sm-3">
+                <h6>OS:</h6>
+                <p id="platform">0</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-6">
+                <canvas style="height: 1000px; width: 1000px" id="cpuChart"></canvas>
+              </div>
+              <div class="col-sm-6">
+                <canvas style="height: 1000px; width: 1000px" id="ramChart"></canvas>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12 mt-5">
+                <form>
+                  <div class="form-group">
+                    <label for="errorLog">ERROR LOG:</label>
+                    <textarea class="form-control bg-dark border-0" disabled style="color: white; max-height: 200px; min-height: 100px;" id="errorLog" rows="5"></textarea>
+                  </div>
+                </form>
+                <h6>To copy this log click in the log box then press:</h6>
+                <kbd>CTRL + SHIFT + A</kbd> => <kbd>CTRL + C</kbd>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer" style="border: 0px;">
+            <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
     </div>
 
 
@@ -224,11 +286,10 @@
           <div class="container-fluid playlist p-0">
             <canvas onmouseenter="playlist_focused=true" onmouseleave="playlist_focused=false" id="tracklist" style="width: 100%; height: 100%; margin: 0; padding: 0; position:absolute;"></canvas>
           </div>
-          <h6 class="p-2 bg=dark mt-auto mb-auto">MIXER</h6>
+          <h6 class="p-2 bg=dark mt-auto mb-auto"><a href="#" style="position: absolute; left: 25px;"><i class="fas fa-chevron-left"></i></a>MIXER<a href="#" style="position:absolute; right: 25px;"><i class="fas fa-chevron-right"></i></a></h6>
           <div class="container-fluid mixer p-0" style="max-width: 1vw; height: 100%;">
             <ul class="list-group list-group-horizontal" id="mixerrack" style="max-width: 50vw; height: 100%">
-            
-
+              <!-- THIS IS WHERE THE MIXER ITEMS ARE CREATED -->
             </ul> 
           </div>
         </div>
