@@ -109,35 +109,10 @@
                         OPTIONS
                       </button>
                       <div class="dropdown-menu" style="width: 200px;">
-                        <a class="dropdown-item" href="#">
+                        <a class="dropdown-item" href="#"  data-toggle="modal" data-target="#audioModal">
                           <div class="row">
-                              <div class="col-sm-6">Undo</div>
-                              <div class="col-sm label"><kbd>Ctrl</kbd> + <kbd>Z</kbd></div>
-                          </div>
-                        </a>
-                        <a class="dropdown-item" href="#">
-                          <div class="row">
-                            <div class="col-sm-6 ddname">Redo</div>
-                            <div class="col-sm label"><kbd>Ctrl</kbd> + <kbd>Y</kbd></div>
-                          </div>
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">
-                          <div class="row">
-                              <div class="col-sm-6">Cut</div>
-                              <div class="col-sm label"><kbd>Ctrl</kbd> + <kbd>X</kbd></div>
-                          </div>
-                        </a>
-                        <a class="dropdown-item" href="#">
-                          <div class="row">
-                              <div class="col-sm-6">Copy</div>
-                              <div class="col-sm label"><kbd>Ctrl</kbd> + <kbd>C</kbd></div>
-                          </div>
-                        </a>
-                        <a class="dropdown-item" href="#">
-                          <div class="row">
-                              <div class="col-sm-6">Paste</div>
-                              <div class="col-sm label"><kbd>Ctrl</kbd> + <kbd>V</kbd></div>
+                              <div class="col-sm-6">Audio</div>
+                              <div class="col-sm label"></div>
                           </div>
                         </a>
                       </div>
@@ -174,7 +149,51 @@
         </div>
     </div>
 
+    <!-- AUDIO OPTIONS DROPDOWN -->
+    <div class="modal fade" id="audioModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header" style="border: 0px;">
+            <h5 class="modal-title" id="exampleModalLongTitle">AUDIO OPTIONS</h5>
+          </div>
+          <div class="modal-body p-5">
+            
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label for="audioInputSelect">INPUT DEVICE</label>
+                  <select class="form-control bg-dark border-0" style="color: white;" id="audioInputSelect">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label for="audioOutputSelect">OUTPUT DEVICE</label>
+                  <select class="form-control bg-dark border-0" style="color: white;" id="audioOutputSelect">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer" style="border: 0px;">
+            <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
 
+
+    <!-- DEBUG MENU DROPDOWN -->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
         <div class="modal-content">

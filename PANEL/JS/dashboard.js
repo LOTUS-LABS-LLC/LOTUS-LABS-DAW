@@ -4,12 +4,19 @@ const $ = require('jquery');
 var osutils = require('os-utils');
 var Chart = require('chart.js');
 var process = require('process');
-const engine = require('lotus-module');
+
+
+const encrypt = require('../CRYPTO/encrypt.js');
+const decrypt = require('../CRYPTO/decrypt.js');
+
+
+//const engine = require('lotus-module');
 
 var canvas = document.getElementById("tracklist");
 var context = canvas.getContext("2d");
 
 var playlist_focused = false;
+
 
 var PLPOS = [0,0];
 var PLBOUND = [1500,1000];
@@ -37,13 +44,16 @@ console.log = function(){
     document.getElementById("errorLog")
 }
 
+console.log('Launch Time: ' + new Date().toLocaleString());
+
+console.log(encrypt('a'));
+
 function startEngine(){   
-  engine.start_as_api();
+  //engine.start_as_api();
 }
 
 function addEventListeners(){
     $("#tracklist").on("mouseenter", function(e){
-    console.log("FOCUS")
     playlist_focused=true;
     });
 

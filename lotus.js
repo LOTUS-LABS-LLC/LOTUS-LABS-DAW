@@ -18,7 +18,7 @@ async function setActivity() {
 
   rpc.setActivity({
     details: `LOTUS DAW`,
-    state: 'Ver ' + config.version,
+    state: 'Version ' + config.version,
     startTimestamp,
     largeImageKey: 'lotus',
     largeImageText: 'Lotus DAW',
@@ -48,7 +48,8 @@ function createWindow () {
     icon: "PANEL/IMG/lotus.jpg",
     frame: false,
     webPreferences: {
-      nodeIntegration: true
+      nodeIntegration: true,
+      devTools: true
     }
   })
 
