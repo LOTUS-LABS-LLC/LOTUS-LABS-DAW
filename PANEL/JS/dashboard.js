@@ -4,6 +4,7 @@ const $ = require('jquery');
 var osutils = require('os-utils');
 var Chart = require('chart.js');
 var process = require('process');
+const engine = require('lotus-module');
 
 
 const encrypt = require('../CRYPTO/encrypt.js');

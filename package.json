@@ -48,7 +48,7 @@
     "uuid": "^3.4.0"
   },
   "devDependencies": {
-    "electron": "^7.1.12",
+    "electron": "^7.1.14",
     "electron-builder": "^22.3.2",
     "neon-cli": "^0.3.3"
   }

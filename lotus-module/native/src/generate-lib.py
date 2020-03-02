@@ -22,7 +22,7 @@ lib = open("lib.rs", "w+")
 jsm = open("../../lib/index.js", "w+")
 
 #write preliminary headers for rust file
-lib.write("use neon::prelude::*;\nuse neon::register_module;\nmod "+libname+";\n")
+lib.write("#[macro_use(lazy_static)]\nextern crate lazy_static;\nuse neon::prelude::*;\nuse neon::register_module;\nmod "+libname+";\n")
 
 #now for the js module
 jsm.write("var mod = require('../native');\nclass OutFn {\nconstructor(){\n}\n")

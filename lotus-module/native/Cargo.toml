@@ -16,7 +16,12 @@ neon-build = "0.3.3"
 
 [dependencies]
 neon = "0.3.3"
-text_io = "0.1.8"
-hound = "3.4.0"
-cpal = "0.11.0"
+cpal = {git = "https://github.com/RustAudio/cpal"}
 anyhow = "1.0.26"
+vst = "0.2.0"
+hound = "3.4.0"
+text_io = "0.1.8"
+num = "0.2.1"
+lazy_static = "1.4.0"
+uds_windows = "0.1.4"
+byteorder = "1.3.4"
