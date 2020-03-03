@@ -11,10 +11,11 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../CSS/dashboard.css">
     <link rel="stylesheet" href="../CSS/LIB/Animate.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gl-matrix/2.7.1/gl-matrix-min.js"></script>
 
     <title>Lotus</title>
   </head>
-  <body onresize="resize_check()" onload="fullscreen(); mixerrack(); drawBoard(0,0);">
+  <body onresize="resize_check()" onload="fullscreen(); mixerrack();drawBoard();">
 
     <!-- TOP BAR DO NOT DELETE-->
     <div class="container-fluid frame">
@@ -366,6 +367,9 @@
     <script type="text/javascript">
       addEventListeners();
       initPlaylistBound();
+    </script>
+    
+    <script type="text/javascript">
     </script>
   </body>
 </html>
