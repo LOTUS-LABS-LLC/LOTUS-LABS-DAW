@@ -6,6 +6,20 @@ body{
     overflow: hidden;
 }
 
+.height-limit{
+  max-height: 95vh;
+}
+
+.playbtn{
+  color: white;
+  background-color: transparent;
+}
+
+.playbtn:hover{
+  color: white;
+  background-color: #222;
+}
+
 * {
     -webkit-tap-highlight-color: rgba(255, 255, 255, 0) !important; 
     -webkit-focus-ring-color: rgba(255, 255, 255, 0) !important; 
@@ -65,6 +79,7 @@ div.frame{
 .files{
   background-color: #2c2a2a;
   min-width: 200px;
+  overflow-y: scroll;
 }
 
 .playlist{
@@ -83,6 +98,13 @@ div.frame{
 
 ::-webkit-scrollbar {
   display: none;
+}
+
+.status-bar{
+  background-color: #444;
+  color: white;
+  position: relative;
+  bottom: 0;
 }
 
 input::-webkit-outer-spin-button,

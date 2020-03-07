@@ -4,22 +4,19 @@ const $ = require('jquery');
 var osutils = require('os-utils');
 var Chart = require('chart.js');
 var process = require('process');
-const engine = require('lotus-module');
-const asyncr = require('async');
+
 
 const encrypt = require('../CRYPTO/encrypt.js');
 const decrypt = require('../CRYPTO/decrypt.js');
+
+
+//const engine = require('lotus-module');
+
 var canvas = document.getElementById("tracklist");
 var context = canvas.getContext("2d");
+
 var playlist_focused = false;
 
-var paused = true;
-
-var samplerate = 44100;
-
-var cursor_time = 1*samplerate;
-
-var BPM = 130;
 
 var PLPOS = [0,0];
 var PLBOUND = [1500,1000];
@@ -33,10 +30,9 @@ var ui_refresh_rate = 3;
 document.onkeyup = function(key){
     if(key.ctrlKey && key.altKey && key.which == 68){
         $('#exampleModal').modal('toggle');
-    } else if(key.keyCode == 32){
-
     }
 }
+
 
 //FOR CONSOLE LOGGIN MAKE SURE THIS IS IN EVERY CLASS
 console.stdlog = console.log.bind(console);
@@ -53,20 +49,12 @@ console.log('Launch Time: ' + new Date().toLocaleString());
 
 console.log(encrypt('a'));
 
-startEngine();
-
 function startEngine(){   
-  engine.main_api();
-}
-
-function pl_pausetoggle(){
-  paused = !paused;
-  engine.pause_button();
+  //engine.start_as_api();
 }
 
 function addEventListeners(){
     $("#tracklist").on("mouseenter", function(e){
-      console.log(">>>>")
     playlist_focused=true;
     });
 
@@ -75,8 +63,6 @@ function addEventListeners(){
     });
 
     $("#tracklist").on("wheel", function(e){
-  {
-    console.log("scroll")
         if(!window.event.ctrlKey){
             if(playlist_focused){
                 PLPOS[0] -= e.originalEvent.deltaX*UI_SENS[0];
@@ -102,12 +88,14 @@ function addEventListeners(){
             PLCELL[0] = clamp(PLCELL[0], 10, PLCELLMAX[0]);
             PLCELL[1] = clamp(PLCELL[1], 10, PLCELLMAX[1]);
         }
-            //requestAnimationFrame(drawBoard);
+        //console.log(PLPOS.toString());
+        if((Date.now() - ui_refresh) >= ui_refresh_rate){
+            drawBoard(PLPOS[0],PLPOS[1]);
+            ui_refresh = Date.now();
+        }
+    });
+}
 
-    }
-}
-);
-}
 function initPlaylistBound(){
     if($("#tracklist").width() > PLBOUND[0]){
         PLBOUND[0] = $("#tracklist").width()+100;
@@ -122,18 +110,6 @@ function clampPLBound(){
     PLPOS[1] = clamp(PLPOS[1], -1*PLBOUND[1], 0);
 }
 
-function change_bpm(bpm_new){
-  BPM = bpm_new;
-}
-
-var clipsindex = 0;
-
-function load_wav_clip(path){
-  engine.load_wav(path);
-  engine.add_clip(clipsindex,0);
-  clipsindex+=1;
-}
-
 function resize_check(){
     // var temp = $(".playlist")[0].innerHTML;
     // $(".playlist")[0].innerHTML = "";
@@ -142,6 +118,7 @@ function resize_check(){
     // var context = canvas.getContext("2d");
     canvas.setAttribute('width', $("#tracklist").width());
     canvas.setAttribute('height', $("#tracklist").height());
+    drawBoard(PLPOS[0],PLPOS[1]);
 }
 
 function fullscreen(){
@@ -154,44 +131,33 @@ function fullscreen(){
     resize_check();
 }
 
-function drawBoard(){
-    if(PLPOS[0] >= PLCELL[0] || PLPOS[0] <= -1*PLCELL[0]){
-        PLPOS[0] = Math.trunc(PLPOS[0]/PLCELL[0]);
+function drawBoard(offsetX,offsetY){
+    if(offsetX >= PLCELL[0] || offsetX <= -1*PLCELL[0]){
+        offsetX = Math.trunc(offsetX/PLCELL[0]);
     }
     context.beginPath();
     context.clearRect(0, 0, $("#tracklist").width(), $("#tracklist").height());
     for (var x = 0.5; x <= PLBOUND[0]; x += PLCELL[0]) {
         for (var y = 0.5; y <= PLBOUND[1]; y += PLCELL[1]) {
             //draw horizontal line
-            if(y >= -1*PLPOS[1]){
-                context.moveTo(0, y+PLPOS[1]);
-                context.lineTo(PLBOUND[0], y+PLPOS[1]);
+            if(y >= -1*offsetY){
+                context.moveTo(0, y+offsetY);
+                context.lineTo(PLBOUND[0], y+offsetY);
             }
         }
         //draw vertical line
-        if(x >= -1*PLPOS[0]){
-            context.moveTo(x+PLPOS[0], 0);
-            context.lineTo(x+PLPOS[0], PLBOUND[1]);
+        if(x >= -1*offsetX){
+            context.moveTo(x+offsetX, 0);
+            context.lineTo(x+offsetX, PLBOUND[1]);
         }
+        
     }
     context.strokeStyle = "#808080";
     context.stroke();
-    context.beginPath();
-    c = ((get_playback_idx()/samplerate)*(BPM/60)*PLCELL[0]);
-    context.moveTo(c + PLPOS[0],0);
-    context.lineTo(c + PLPOS[0],PLBOUND[1]);
-    context.strokeStyle = "red";
-    context.stroke();
-    requestAnimationFrame(drawBoard);
 }
 
-function get_playback_idx(){
-  //coming soon
-  if(!paused){
-    cursor_time = engine.get_playback();
-  }
-  return cursor_time;
-}
+
+
 
 function mixerrack(){
     for(i = 1; i <= 200; i++){
