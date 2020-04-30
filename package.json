@@ -40,7 +40,7 @@
     "crypto-js": "^4.0.0",
     "discord-rpc": "^3.1.0",
     "electron-build-env": "^0.2.0",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "lotus-module": "file:./lotus-module",
     "neon": "^2.0.0",
     "neon-cli": "^0.3.3",
