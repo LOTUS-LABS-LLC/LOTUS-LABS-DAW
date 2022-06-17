@@ -15,7 +15,7 @@ crate-type = ["cdylib"]
 neon-build = "0.3.3"
 
 [dependencies]
-neon = "0.3.3"
+neon = "0.10.1"
 cpal = {git = "https://github.com/RustAudio/cpal"}
 anyhow = "1.0.26"
 vst = "0.2.0"
